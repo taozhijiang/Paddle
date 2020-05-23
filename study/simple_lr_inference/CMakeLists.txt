@@ -14,18 +14,17 @@ option(BUILD_DEBUG "build project for debug or development propurse..." ON)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 
-set(macOS_PREFIX "/Volumes/CaseVolume/Repository/Dropbox/repos/macOS/")
-
 set(INCLUDE_DIR
     ${PROJECT_SOURCE_DIR}/../../inference_root/paddle/include
-    ${PROJECT_SOURCE_DIR}/../../../../inference_root/third_party/
-    ${macOS_PREFIX}/include
+    ${PROJECT_SOURCE_DIR}/../../inference_root/third_party/
+    ${PROJECT_SOURCE_DIR}/../../inference_root/third_party/install/glog/include/
+    ${PROJECT_SOURCE_DIR}/../../inference_root/third_party/install/gflags/include/
 )
 include_directories( ${INCLUDE_DIR} )
 
 link_directories(
     ${PROJECT_SOURCE_DIR}/../../inference_root/paddle/lib
-    ${macOS_PREFIX}/lib
+    ${PROJECT_SOURCE_DIR}/../../inference_root/third_party/install/glog/lib/
 )
 
 set (EXTRA_LIBS ${EXTRA_LIBS} paddle_fluid)
